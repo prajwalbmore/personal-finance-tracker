@@ -7,7 +7,7 @@ async function addtransaction(req,res){
         res.status(200).send({message :"Transaction added successfully",task : result});
     } catch (error) {
         res.status(500).send(error);
-    }
+    } 
 }
 
 async function getAllTransaction(req,res){

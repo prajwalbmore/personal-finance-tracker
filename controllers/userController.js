@@ -17,7 +17,7 @@ const jwt = require('jsonwebtoken');
 //         }
          
 //     } catch (error) {
-//         res.status(500).send(error);
+//         res.status(500).send(error); 
 //     }
 // }
 async function registerUser(req, res){
@@ -26,10 +26,8 @@ async function registerUser(req, res){
         const userExists = await User.findOne({email : newEmail});
         if(userExists){
             res.status(200).send({message : 'User already exists'})
-            console.log('Already exists');
         }else{
             const user = await new User(req.body);
-            console.log('#####');
             const result = await user.save();
             res.status(200).send({message : 'registration successful',task: result})
         } 
